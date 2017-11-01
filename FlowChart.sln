@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChart", "FlowChart\FlowChart.csproj", "{D1027F0E-CC91-4F37-A37D-50CD8CE4399A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChart.Core", "FlowChart.Core\FlowChart.Core.csproj", "{11F440CC-10D0-4A23-82C9-1496F024824B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChartPlugin", "FlowChartPlugin\FlowChartPlugin.csproj", "{DD6FADDE-D83F-4B6F-A167-ABB5D5648AAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D1027F0E-CC91-4F37-A37D-50CD8CE4399A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1027F0E-CC91-4F37-A37D-50CD8CE4399A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1027F0E-CC91-4F37-A37D-50CD8CE4399A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F440CC-10D0-4A23-82C9-1496F024824B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F440CC-10D0-4A23-82C9-1496F024824B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F440CC-10D0-4A23-82C9-1496F024824B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F440CC-10D0-4A23-82C9-1496F024824B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD6FADDE-D83F-4B6F-A167-ABB5D5648AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6FADDE-D83F-4B6F-A167-ABB5D5648AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6FADDE-D83F-4B6F-A167-ABB5D5648AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6FADDE-D83F-4B6F-A167-ABB5D5648AAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

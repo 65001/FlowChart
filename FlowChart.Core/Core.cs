@@ -1,35 +1,13 @@
-﻿//(C) Abhishek Sathiabalan. 2017-10-30. MIT Liscence
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 
-namespace FlowChart
+namespace FlowChart.Core
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Analyzer AZ = new Analyzer();
-            AZ.Open(args[0]);
-            AZ.CreateFlowChart();
-
-            int Count = 0;
-            foreach (KeyValuePair<(string From, string To), int> entry in AZ.Flow)
-            {
-                Console.WriteLine("{3} {0} -> {1} : {2}", entry.Key.From, entry.Key.To, entry.Value,Count);
-                Count = Count + 1;
-            }
-
-            Console.WriteLine(AZ.Export());
-            AZ.Write();
-            Console.Read();
-        }
-    }
-
-    class Analyzer
+    public class Analyzer
     {
         private string[] Text;
         private string InputURI;
@@ -37,7 +15,7 @@ namespace FlowChart
         private string CurrentSubroutine;
         private string HTML;
 
-        public Dictionary<(string From,string To), int> Flow= new Dictionary<(string From, string To),int>();
+        public Dictionary<(string From, string To), int> Flow = new Dictionary<(string From, string To), int>();
 
         public void Open(string URI)
         {
@@ -45,9 +23,9 @@ namespace FlowChart
             {
                 throw new ArgumentNullException(URI);
             }
-           this.OutputURI = System.IO.Path.GetDirectoryName(URI) + "\\" + System.IO.Path.GetFileNameWithoutExtension(URI) + " Code Analysis.html";
-           this.InputURI = URI;
-           this.Text = System.IO.File.ReadAllLines(URI);
+            this.OutputURI = System.IO.Path.GetDirectoryName(URI) + "\\" + System.IO.Path.GetFileNameWithoutExtension(URI) + " Code Analysis.html";
+            this.InputURI = URI;
+            this.Text = System.IO.File.ReadAllLines(URI);
         }
 
         public void CreateFlowChart()
@@ -101,7 +79,7 @@ namespace FlowChart
                         int Start = CL.IndexOf("(");
                         int End = CL.IndexOf(")");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("{0} ({1},{2})",CL,Start,End);
+                        Console.WriteLine("{0} ({1},{2})", CL, Start, End);
                         Console.ForegroundColor = ConsoleColor.White;
                         string Called = CL.Substring(0, Start); ;
                         if (End == (Start + 1))
@@ -205,6 +183,14 @@ namespace FlowChart
         public void Write()
         {
             System.IO.File.WriteAllText(OutputURI, HTML);
+        }
+    }
+
+    public static class Icon
+    {
+        public static Bitmap GetBitmap()
+        {
+            return Properties.Resources.plugin;
         }
     }
 }
